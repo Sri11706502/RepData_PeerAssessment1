@@ -85,7 +85,7 @@ legend("topright",
        col = c("blue","yellow"))
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-4-1.png)<!-- -->
+![](PA1_template_files/figure-html/mean_steps-1.png)<!-- -->
 
 mean
 
@@ -128,7 +128,7 @@ plot(average_interval$interval,
      main = "Average Daily Activity Pattern")
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-7-1.png)<!-- -->
+![](PA1_template_files/figure-html/daily_activity-1.png)<!-- -->
 
 
 
@@ -226,7 +226,7 @@ legend("topright",
        col = c("blue","yellow"))
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-9-1.png)<!-- -->
+![](PA1_template_files/figure-html/mean_steps_imputed-1.png)<!-- -->
 
 Mean
 
@@ -329,5 +329,5 @@ plot(final_weekends$interval,
      main = "Weekends Activity pattern")
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-15-1.png)<!-- -->
+![](PA1_template_files/figure-html/comparision -1.png)<!-- -->
 

@@ -11,7 +11,7 @@ knitr::opts_chunk$set(echo=TRUE)
 ## Loading and preprocessing the data
 
 ### Reading the data
-```{r}
+```{r load}
 if(!file.exists("activity.csv")){
   unzip("activity.zip")
   
@@ -22,7 +22,7 @@ head(data)
 ```
 
 ### Processing the data
-```{r}
+```{r process}
 
 # Converting date column to date class
 data$date <- as.Date(as.character(data$date),"%Y-%m-%d")
@@ -36,7 +36,7 @@ head(data)
 
 ## What is mean total number of steps taken per day?
 
-```{r}
+```{r mean_steps}
 # Aggregation on the basis of date with sum function
 sum_steps <- aggregate(steps~date,data,sum,na.rm=TRUE)
 
@@ -67,14 +67,14 @@ legend("topright",
 
 mean
 
-```{r}
+```{r mean_display}
 # Calculating and Displaying mean 
 mean(sum_steps$steps)
 ```
 
 median
 
-```{r}
+```{r median_display}
 # Calculating and Displaying median
 median(sum_steps$steps)
 ```
@@ -82,7 +82,7 @@ median(sum_steps$steps)
 
 ## What is the average daily activity pattern?
 
-```{r}
+```{r daily_activity}
 # Aggregation on the basis of intervals and applying mean function on groups
 average_interval <- aggregate(steps~interval,data,mean,na.rm=TRUE)
 
@@ -99,7 +99,7 @@ plot(average_interval$interval,
 
 ## Imputing missing values
 
-```{r}
+```{r imputing}
 # importing required libraries
 library(dplyr)
 
@@ -127,7 +127,7 @@ head(final_data)
 ```
 
 
-```{r}
+```{r mean_steps_imputed}
 # Aggregation of final data based on date groups and applying sum function
 sum_final_data <- aggregate(steps~date,final_data,sum)
 
@@ -159,13 +159,13 @@ legend("topright",
 
 Mean
 
-```{r}
+```{r mean_display_2}
 # Calculating and Displaying Mean
 mean(sum_final_data$steps)
 ```
 
 Median
-```{r}
+```{r median_display_2}
 # Calculating and Displaying Median
 median(sum_final_data$steps)
 ```
@@ -173,7 +173,7 @@ median(sum_final_data$steps)
 ## Are there differences in activity patterns between weekdays and weekends?
 
 Subsetting weekdays
-```{r}
+```{r subset_weekday}
 # Subsetting data for weekdays
 data_weekday <- subset(final_data,day_of_week 
                        %in% c("Mon","Tue","Wed","Thu","Fri"))
@@ -183,7 +183,7 @@ head(data_weekday)
 ```
 
 Subsetting weekend rows
-```{r}
+```{r subset_weekend}
 # Subsetting data for weekends
 data_weekends <- subset(final_data,day_of_week %in% c("Sat","Sun"))
 
@@ -192,7 +192,7 @@ head(data_weekends)
 ```
 
 Final data Processing
-```{r}
+```{r final_process}
 # Weekdays data
 # Grouping on the basis of interval and sum aggregation
 final_weekdays <- aggregate(steps~interval,data_weekday,sum)
@@ -202,7 +202,7 @@ final_weekdays <- aggregate(steps~interval,data_weekday,sum)
 final_weekends <- aggregate(steps~interval,data_weekends,sum)
 ```
 
-```{r,fig.height=6,fig.width=8}
+```{r comparision ,fig.height=6,fig.width=8}
 # Plotting graph
 # Creation of two panels
 par(mfcol=c(2,1),mar=c(6,4,1,1))
