@@ -329,5 +329,5 @@ plot(final_weekends$interval,
      main = "Weekends Activity pattern")
 ```
 
-![](PA1_template_files/figure-html/comparision -1.png)<!-- -->
+![](PA1_template_files/figure-html/comparision-1.png)<!-- -->
 

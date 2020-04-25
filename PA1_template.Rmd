@@ -202,7 +202,7 @@ final_weekdays <- aggregate(steps~interval,data_weekday,sum)
 final_weekends <- aggregate(steps~interval,data_weekends,sum)
 ```
 
-```{r comparision ,fig.height=6,fig.width=8}
+```{r comparision,fig.height=6,fig.width=8}
 # Plotting graph
 # Creation of two panels
 par(mfcol=c(2,1),mar=c(6,4,1,1))
